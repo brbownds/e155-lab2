@@ -2,15 +2,14 @@
 // brbownds@hmc.edu
 // 9/1/2025
 
-// this seven segment module is strictly combinational logic so we
-// can use case statements
-
+// This is the seven segment module is strictly combinational logic so we
+// can use case statements. We can reutilize this from Lab 2
 
 module sevenseg (input  logic [3:0] s,
                  output logic [6:0] seg);
                      
     always_comb begin
-        casez(s)
+        case (s)
             4'b0000: seg = 7'b1000000; // 0
             4'b0001: seg = 7'b1111001; // 1
             4'b0010: seg = 7'b0100100; // 2
