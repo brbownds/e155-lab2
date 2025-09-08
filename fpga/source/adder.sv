@@ -6,9 +6,7 @@
 
 // adder module
 
-
 // This module computes the sum of the DIP switches and 4 other input pins
-
 
 module adder ( input  logic [3:0] s0, //DIP
                input  logic [3:0] s1, // DIP?
