@@ -24,21 +24,27 @@ module lab2_bb( input logic reset,
    HSOSC #(.CLKHF_DIV(2'b01)) 
          hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 	
-	select s2(s0, s1, select_mux, s);
+	// make the adder where the five LEDs are the sum of s0 and s1
+	assign led = s0 + s1;
+	
+	// make a mux so that it can choose which set of inputs go into
+	// the seven segment display module
+    assign s = select_mux ? s1 : s0;
 	
 	sevenseg ss_display(s, seg);
   
   // Counter
    always_ff @(posedge int_osc) begin
-	   if (reset == 0) 
+	   if (!reset) begin
 		   counter <=0; 
-     else if(counter == 524288) begin
+		   select_mux <= 1'b0; end
+     else if(counter == 50000) begin
 		 counter <= 0; 
 		 select_mux <= ~select_mux;
 		 end
-     else           
+     else begin          
 		 counter <= counter + 1;
-		
+		end
    end
 		assign disp0 = select_mux;
 		 assign disp1 = ~select_mux;
