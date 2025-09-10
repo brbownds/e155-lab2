@@ -3,7 +3,7 @@
 // 9/6/2025
 
 
-// This module contains our HSOSC and instaniates our select and adder modules.
+// This is our top module with sevenseg module as a submodule which we instantiate contains our HSOSC.
 // This is where we divide our clock to generate a slower clock signal so we don't bleed
 // or ghost when flickering. 
 

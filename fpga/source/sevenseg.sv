@@ -3,7 +3,8 @@
 // 9/1/2025
 
 // This is the seven segment module is strictly combinational logic so we
-// can use case statements. We can reutilize this from Lab 2
+// can use case statements. We can reutilize this from Lab 2 as our submodule
+// for our top module to select which 4-bit inputs go into this module.
 
 module sevenseg (input  logic [3:0] s,
                  output logic [6:0] seg);
