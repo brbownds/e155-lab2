@@ -3,6 +3,11 @@
 // 9/8/2025
 
 //This module is our testbench for the top module: lab2_bb
+// This testbench generates a clock, applies reset, and exhaustively tests all
+// 256 possible input combinations (s0, s1). It verifies correctness of the LED
+// sum output, the multiplexing logic for disp0/disp1, and the seven-segment
+// display encoding.
+
 `timescale 1ns/1ns
 
 module lab2_bbtb();
